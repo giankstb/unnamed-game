@@ -1,0 +1,9 @@
+last_direction = 0
+rolling_distance = 0
+sailing_ship = false
+end_x = x
+end_y = y
+action_rolling = false
+can_attack = true
+new_cam_width = obj_camera.cam_width
+new_cam_height = obj_camera.cam_height

@@ -1,0 +1,8 @@
+var roll_direction = point_direction(xprevious,yprevious,x,y)
+draw_text(0,0,string(roll_direction))
+draw_text(0,20,string(x))
+draw_text(0,40,string(y))
+draw_text(0,60,string(action_rolling))
+draw_text(0,80,string(mouse_direction))
+draw_text(0,100,string(mouse_direction_final))
+draw_text(0,120,string(obj_spear.holstered))
