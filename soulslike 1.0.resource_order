@@ -47,5 +47,6 @@
     {"name":"spr_tileset1","order":15,"path":"sprites/spr_tileset1/spr_tileset1.yy",},
     {"name":"spr_tree","order":16,"path":"sprites/spr_tree/spr_tree.yy",},
     {"name":"spr_wall","order":7,"path":"sprites/spr_wall/spr_wall.yy",},
+    {"name":"spr_wolf","order":19,"path":"sprites/spr_wolf/spr_wolf.yy",},
   ],
 }
