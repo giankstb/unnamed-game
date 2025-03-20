@@ -1,3 +1,5 @@
+life = 150
+
 spd = 1.8
 jump_size = 128
 alarm_greenlight = false

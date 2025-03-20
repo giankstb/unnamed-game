@@ -83,9 +83,11 @@ if !holstered
 	{	
 		x = lerp(x,new_x,0.3)
 		y = lerp(y,new_y,0.3)
+		attacking = true
 		if abs(x - new_x) <= 10 and abs(y - new_y) <= 10
 		{
 			can_retrieve = true
+			attacking = false
 		}
 	}
 
@@ -107,24 +109,20 @@ if !holstered
 			}
 		}
 	}
+}
+}
 #endregion
-	#region damage
-	if instance_exists(obj_dummy)
+
+#region damage
+var nearest_wolf = instance_place(x,y,obj_wolf)
+
+if !holstered
+{
+	if attacking
 	{
-		if place_meeting(x,y,nearest_dummy) and hit_again and !can_attack
+		if place_meeting(x,y,nearest_wolf)
 		{
-			damage = irandom_range(150,200)
-			nearest_dummy.life -= damage
-			hit_again = false
-			hit_coords_x = irandom_range(-16,32)
-			hit_coords_y = irandom_range(-16,0)
+			instance_destroy(nearest_wolf)
 		}
-		if !place_meeting(x,y,nearest_dummy) and !hit_again
-		{
-			hit_again = true
-		}
-		nearest_dummy = instance_place(x,y,obj_dummy)
-	}
-	#endregion
 	}
 }

@@ -1,3 +1,4 @@
+attacking = false
 holstered = true
 nearest_dummy = instance_place(x,y,obj_dummy)
 enable_spear = true
