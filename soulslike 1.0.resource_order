@@ -33,6 +33,7 @@
     {"name":"rm_firstroom","order":1,"path":"rooms/rm_firstroom/rm_firstroom.yy",},
     {"name":"rm_ocean","order":2,"path":"rooms/rm_ocean/rm_ocean.yy",},
     {"name":"rm_testes","order":3,"path":"rooms/rm_testes/rm_testes.yy",},
+    {"name":"macro_print","order":1,"path":"scripts/macro_print/macro_print.yy",},
     {"name":"spr_dummy","order":5,"path":"sprites/spr_dummy/spr_dummy.yy",},
     {"name":"spr_ocean","order":18,"path":"sprites/spr_ocean/spr_ocean.yy",},
     {"name":"spr_player_horizontal","order":11,"path":"sprites/spr_player_horizontal/spr_player_horizontal.yy",},

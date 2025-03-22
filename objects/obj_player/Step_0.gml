@@ -11,7 +11,7 @@ if keyboard_check_pressed(vk_shift) and action_rolling = false
 	action_rolling = true
 	obj_controlador.player_can_move = false
 	rolling_direction = point_direction(xprevious,yprevious,x,y)
-	rolling_distance = 48
+	rolling_distance = 96
 	end_x += lengthdir_x(rolling_distance,rolling_direction)
 	end_y += lengthdir_y(rolling_distance,rolling_direction)
 	if xprevious == x and yprevious == y

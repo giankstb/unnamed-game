@@ -1,8 +1,3 @@
-if alarm_greenlight = false
-{
-	
-}
-else
-{
-	alarm[0] = -1
-}
+
+can_attack_2_phase = true
+preparing_jump = false

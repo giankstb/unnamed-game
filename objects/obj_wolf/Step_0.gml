@@ -1,5 +1,4 @@
-#region chasing
-/// Failsafe no caso de ter uma parede no local que ele vai pular
+#region collision unstuck failsafe
 if !mp_grid_path(obj_grid.grid,path,x,y,x_goal,y_goal,true)
 {
     var direction_unstuck = point_direction(x,y,x_goal,y_goal)
@@ -8,9 +7,10 @@ if !mp_grid_path(obj_grid.grid,path,x,y,x_goal,y_goal,true)
     x += x_unstuck
     y += y_unstuck
 }
-    
+#endregion
 
-if !chasing and !can_attack_1_phase or !can_attack_2_phase or !attacking 
+#region chasing
+if !chasing and !can_attack_1_phase or !can_attack_2_phase or !attacking and !preparing_jump
 and distance_to_object(obj_player) < 96 then chasing = true
 
 if chasing = true
@@ -48,7 +48,8 @@ if can_attack_1_phase and distance_to_object(obj_player) < 72
 	cooldown_attack = 100
 	chasing = false
 	can_attack_1_phase = false
-	can_attack_2_phase = true
+    preparing_jump = true
+	alarm[0] = 1.5*60
 }
 
 if can_attack_2_phase

@@ -67,6 +67,7 @@
     {"id":{"name":"rm_ocean","path":"rooms/rm_ocean/rm_ocean.yy",},},
     {"id":{"name":"rm_testes","path":"rooms/rm_testes/rm_testes.yy",},},
     {"id":{"name":"room_forestofpathartan","path":"rooms/room_forestofpathartan/room_forestofpathartan.yy",},},
+    {"id":{"name":"macro_print","path":"scripts/macro_print/macro_print.yy",},},
     {"id":{"name":"scr_movement","path":"scripts/scr_movement/scr_movement.yy",},},
     {"id":{"name":"spr_dummy","path":"sprites/spr_dummy/spr_dummy.yy",},},
     {"id":{"name":"spr_ocean","path":"sprites/spr_ocean/spr_ocean.yy",},},
