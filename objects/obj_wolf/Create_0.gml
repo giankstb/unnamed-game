@@ -1,7 +1,10 @@
 life = 150
 
+detection_radius = 192
 spd = 1.4
 jump_size = 128
+
+ai_state = AIState.IDLE
 
 path = path_add()
 

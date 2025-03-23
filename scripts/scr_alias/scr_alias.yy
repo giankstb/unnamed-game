@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"macro_print",
+  "%Name":"scr_alias",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"macro_print",
+  "name":"scr_alias",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

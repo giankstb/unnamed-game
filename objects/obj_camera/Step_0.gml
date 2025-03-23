@@ -1,3 +1,11 @@
+if keyboard_check_pressed(vk_f11)
+{
+    fullscreen = !fullscreen
+}
+
+window_enable_borderless_fullscreen(fullscreen)
+window_set_fullscreen(fullscreen)
+
 if instance_exists(obj_player) and follow = noone
 {
 	follow = obj_player

@@ -7,5 +7,4 @@ follow = noone
 x_to = x
 y_to = y
 
-window_enable_borderless_fullscreen(true)
-window_set_fullscreen(true)
+fullscreen = true
