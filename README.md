@@ -1,6 +1,7 @@
-THIS A WORK IN PROGRESS, A GAME THAT I'M WORKING ON IN MY FREE TIME AND AS A WAY TO TRACK PROGRESS IN PROGRAMMING AND ALSO TO HAVE BETTER VERSION BACKUPS. I'M USING FREE ASSETS OF WHICH I DON'T KNOW THE ORIGIN, SO IF YOU'RE THE OWNER OF ANYTHING IN HERE, FEEL FREE TO CONTACT ME. THESE ASSETS WILL
-NOT STAY FOR THE FINAL VERSION, THEY'RE THERE AS A GRAYBOX PROTOTYPE, I WOULD NEVER USE THIS STUFF WITH THE INTENTION OF GAINING ADVANTAGE OVER PEOPLE'S KINDNESS. FROM THE BOTTOM OF MY HEART I THANK EVERYONE WHO MADE THESE ASSETS, AND IF I COULD, I WOULD CONTRIBUTE TO THEIR PROJECTS AS WELL.
+**This project contains free-to-use assets, but the original sources are not fully documented.**
+**If you are the creator of any asset used here and would like it to be credited or removed, please contact me.**
 
+Hello, I'm Gian and this is a game I'm working on in my free time. This github repository is here so I can track progress, show my code to people and also to better versionate this project. You can take a look of how it looks by checking the releases, I'll post some stuff there that I think is worth seeing. Keep in mind you'll not see any finished product, just stuff you can mess around with and a few numbers and strings in the screen as a debug method. Feel free to leave suggestions in my code, as a way to make it better. Goodbye!
 
 Copyright © 2025 Gian Karlo  
 
