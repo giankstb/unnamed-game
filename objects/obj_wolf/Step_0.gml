@@ -1,77 +1,107 @@
-#region chasing
-/// Failsafe no caso de ter uma parede no local que ele vai pular
-if !mp_grid_path(obj_grid.grid,path,x,y,x_goal,y_goal,true)
-{
-    var direction_unstuck = point_direction(x,y,x_goal,y_goal)
-    var x_unstuck = lengthdir_x(1,direction_unstuck)
-    var y_unstuck = lengthdir_y(1,direction_unstuck)
-    x += x_unstuck
-    y += y_unstuck
+#region enum states
+enum AIState {
+    IDLE,
+    WALKING_CHASE,
+    RUNNING_CHASE,
+    ATTACKING,
+    WANDERING,
+    PREPARING
 }
+#endregion
+
+#region wandering ai
+
+#endregion
+
+#region chasing ai
+
+#region detection radius
+if ai_state != AIState.PREPARING and ai_state != AIState.ATTACKING
+{
+    if distance_to_object(obj_player) <= detection_radius and detection_radius > detection_radius div 2
+    {
+        ai_state = AIState.RUNNING_CHASE
+        debug_log("RUNNING CHASE")
+    }
     
-
-if !chasing and !can_attack_1_phase or !can_attack_2_phase or !attacking 
-and distance_to_object(obj_player) < 96 then chasing = true
-
-if chasing = true
-{
-	if !attacking or can_attack_1_phase or can_attack_2_phase
-	{
-		x_goal = obj_player.x
-		y_goal = obj_player.y
-	}
-	else
-	{
-		x_goal = x
-		y_goal = y
-	}
-	
-	if mp_grid_path(obj_grid.grid,path,x,y,x_goal,y_goal,true)
-	{
-		path_start(path,spd,path_action_stop,false)
-	}
+    if distance_to_object(obj_player) < detection_radius div 2
+    {
+        ai_state = AIState.WALKING_CHASE
+        debug_log("WALKING CHASE")
+    }
 }
 #endregion
 
-#region attack cooldown
-if chasing
-{
-	if cooldown_attack > 0 then cooldown_attack--
-}
-
-if cooldown_attack == 0 then can_attack_1_phase = true
+#region speed defining
+if ai_state = AIState.WALKING_CHASE then spd = 1.4
+if ai_state = AIState.RUNNING_CHASE then spd = 2.4
 #endregion
 
-#region attacking
-if can_attack_1_phase and distance_to_object(obj_player) < 72
+#region path start
+if ai_state = AIState.WALKING_CHASE or ai_state = AIState.RUNNING_CHASE
 {
-	cooldown_attack = 100
-	chasing = false
-	can_attack_1_phase = false
-	can_attack_2_phase = true
+    x_goal = obj_player.x
+    y_goal = obj_player.y
+    if mp_grid_path(obj_grid.grid,path,x,y,x_goal,y_goal,false)
+    {
+        path_start(path,spd,path_action_stop,false)
+    }
+}
+if ai_state = AIState.PREPARING or ai_state = AIState.ATTACKING
+{
+    x_goal = x
+    y_goal = y
+    if mp_grid_path(obj_grid.grid,path,x,y,x_goal,y_goal,false)
+        {
+            path_start(path,spd,path_action_stop,false)
+        }
+}
+#endregion
+
+#region preparing to jump
+if ai_state != AIState.PREPARING and ai_state != AIState.ATTACKING
+{
+    if distance_to_object(obj_player) < detection_radius div 2
+    {
+        if timer == undefined then timer = 100
+        if timer > 0 then timer--
+        if timer == 0
+        {
+            ai_state = AIState.PREPARING
+            timer = undefined
+        }
+    }
 }
 
-if can_attack_2_phase
+if ai_state = AIState.PREPARING
 {
-	direction = point_direction(x,y,obj_player.x,obj_player.y)
-	attacking = true
-	can_attack_2_phase = false
-	new_x = x
-	new_y = y
-	new_x += lengthdir_x(jump_size,direction)
-	new_y += lengthdir_y(jump_size,direction)
+    if timer = undefined then timer = 60
+    if timer > 0 then timer--
+    if timer == 0
+    {
+        ai_state = AIState.ATTACKING
+    }
 }
+#endregion
 
-if attacking
+#region jumping towards the player
+if ai_state = AIState.ATTACKING
 {
-	x = lerp(x,new_x,0.05)
-	y = lerp(y,new_y,0.05)
-	if (new_x - x) < 5 and (new_y - y) < 5
-	{
-		cooldown_attack = 100
-		attacking = false
-	}
+    var direction_to_jump = point_direction(x,y,obj_player.x,obj_player.y)
+    if new_x == undefined then new_x = x + lengthdir_x(jump_size,direction_to_jump)
+    if new_y == undefined then new_y = y + lengthdir_y(jump_size,direction_to_jump)
+    x = lerp(x,new_x,0.2)
+    y = lerp(y,new_y,0.2)
+    if abs(x - new_x) < 5 and abs(y - new_y) < 5
+    {
+        ai_state = AIState.IDLE
+        timer = undefined
+        new_x = undefined
+        new_y = undefined
+    }
 }
+#endregion
+    
 #endregion
 
 #region animation

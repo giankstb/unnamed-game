@@ -53,6 +53,7 @@
   "resources":[
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"obj_controlador","path":"objects/obj_controlador/obj_controlador.yy",},},
+    {"id":{"name":"obj_debug","path":"objects/obj_debug/obj_debug.yy",},},
     {"id":{"name":"obj_dummy","path":"objects/obj_dummy/obj_dummy.yy",},},
     {"id":{"name":"obj_grid","path":"objects/obj_grid/obj_grid.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
@@ -67,6 +68,8 @@
     {"id":{"name":"rm_ocean","path":"rooms/rm_ocean/rm_ocean.yy",},},
     {"id":{"name":"rm_testes","path":"rooms/rm_testes/rm_testes.yy",},},
     {"id":{"name":"room_forestofpathartan","path":"rooms/room_forestofpathartan/room_forestofpathartan.yy",},},
+    {"id":{"name":"scr_alias","path":"scripts/scr_alias/scr_alias.yy",},},
+    {"id":{"name":"scr_debug_log","path":"scripts/scr_debug_log/scr_debug_log.yy",},},
     {"id":{"name":"scr_movement","path":"scripts/scr_movement/scr_movement.yy",},},
     {"id":{"name":"spr_dummy","path":"sprites/spr_dummy/spr_dummy.yy",},},
     {"id":{"name":"spr_ocean","path":"sprites/spr_ocean/spr_ocean.yy",},},
