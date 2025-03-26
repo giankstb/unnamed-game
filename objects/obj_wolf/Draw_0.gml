@@ -28,6 +28,8 @@ switch(ai_state) {
     case 5:
         draw_text(x,y-40,"PREPARING")
     break;
+    case 6:
+        draw_text(x,y-40,"HIT")
 }
 
-draw_text(x,y-60,string(timer))
+draw_text(x,y-60,string(timer_wandering))

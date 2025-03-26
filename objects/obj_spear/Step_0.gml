@@ -74,8 +74,8 @@ if !holstered
 
 	if mouse_check_button_pressed(mb_left) and can_attack
 	{
-		new_x += lengthdir_x(32,image_angle)
-		new_y += lengthdir_y(32,image_angle)
+		new_x += lengthdir_x(38,image_angle)
+		new_y += lengthdir_y(38,image_angle)
 		can_attack = false
 	}
 
@@ -112,17 +112,3 @@ if !holstered
 }
 }
 #endregion
-
-#region damage
-var nearest_wolf = instance_place(x,y,obj_wolf)
-
-if !holstered
-{
-	if attacking
-	{
-		if place_meeting(x,y,nearest_wolf)
-		{
-			instance_destroy(nearest_wolf)
-		}
-	}
-}
