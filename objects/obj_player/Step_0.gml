@@ -11,7 +11,7 @@ if keyboard_check_pressed(vk_shift) and action_rolling = false
 	action_rolling = true
 	obj_controlador.player_can_move = false
 	rolling_direction = point_direction(xprevious,yprevious,x,y)
-	rolling_distance = 48
+	rolling_distance = 64
 	end_x += lengthdir_x(rolling_distance,rolling_direction)
 	end_y += lengthdir_y(rolling_distance,rolling_direction)
 	if xprevious == x and yprevious == y
@@ -168,6 +168,37 @@ if !going_down and !going_up and !going_right and !going_left or obj_spear.can_a
 		obj_spear.depth = -y
 	}
 }
+#endregion
+
+#region map grid handling
+var moving_direction = point_direction(x,y,xprevious,yprevious)
+var going_direction = floor(moving_direction / 45) //interval of 45
+
+if obj_map_grid_controller.i >= 0 and obj_map_grid_controller.i < array_length(obj_map_grid_controller.magarnan_map_grid) and 
+   obj_map_grid_controller.j >= 0 and obj_map_grid_controller.j < array_length(obj_map_grid_controller.magarnan_map_grid)
+{
+    if place_meeting(x,y,obj_map_grid_collisor)
+    {
+        if going_right
+        {
+            obj_map_grid_controller.j += 1
+            
+        }
+        if going_up
+        {
+            obj_map_grid_controller.i -= 1
+        }
+        if going_left
+        {
+            obj_map_grid_controller.j -= 1
+        }
+        if going_down
+        {
+            obj_map_grid_controller.i += 1
+        }
+        room_goto(obj_map_grid_controller.magarnan_map_grid[obj_map_grid_controller.i,obj_map_grid_controller.j])
+    }    
+} 
 #endregion
 
 depth = -y

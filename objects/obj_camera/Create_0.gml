@@ -1,4 +1,4 @@
-cam_width = 640 //360 640 960
+cam_width = 480 //360 640 960
 cam_height = 360 //240 360 540
 cam_follow_speed = 16
 
