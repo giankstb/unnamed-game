@@ -1,3 +1,7 @@
+As of april 8th, 2025, I'll be moving this project to a private place. This so I can work better on my art and for the safety of my future code. I'll ocasionally drop some releases here, but the code itself will never be publicly changed.
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
 **This project contains free-to-use assets, but the original sources are not fully documented.**
 **If you are the creator of any asset used here and would like it to be credited or removed, please contact me.**
 
